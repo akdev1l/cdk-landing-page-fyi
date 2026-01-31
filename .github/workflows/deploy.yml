@@ -1,4 +1,4 @@
-name: Deploy CDK App
+name: Deploy CDK App to Sandbox
 
 on:
   push:
