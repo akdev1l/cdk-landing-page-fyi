@@ -20,7 +20,7 @@
     "synth": "cdk synth"
   },
   "devDependencies": {
-    "@akdev1l/constructs": "^0.0.7",
+    "@akdev1l/constructs": "^0.0.8",
     "typescript": "^5.9.3",
     "aws-cdk": "^2.1104.0"
   }
