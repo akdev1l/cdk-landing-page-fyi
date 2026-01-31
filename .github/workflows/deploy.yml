@@ -7,7 +7,7 @@ on:
   workflow_dispatch:  # allow manual trigger
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     permissions:
       id-token: write  # required for OIDC
@@ -16,13 +16,6 @@ jobs:
       # Step 1: Checkout repo
       - name: Checkout code
         uses: actions/checkout@v4
-
-      # Step 2: Configure AWS credentials using OIDC
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v3
-        with:
-          role-to-assume: arn:aws:iam::339712719942:role/GithubActions
-          aws-region: ca-central-1
 
       # Step 3: Install Node.js (if using CDK in TypeScript/JS)
       - name: Setup Node.js
@@ -37,7 +30,18 @@ jobs:
       # Step 5: Build the project (optional if using TypeScript)
       - name: Build
         run: npm run build
+    
+  deploy-alpha:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      # Step 2: Configure AWS credentials using OIDC
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::339712719942:role/GithubActions
+          aws-region: ca-central-1
 
       # Step 6: Deploy CDK stack
       - name: Deploy CDK
-        run: npx cdk deploy LandingPageStack --require-approval never
+        run: npm run deploy LandingPageStack --require-approval never
