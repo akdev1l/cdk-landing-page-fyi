@@ -9,6 +9,6 @@ export class LandingPageStack extends Stack {
   constructor(scope: Construct, id: string, props: StackProps) {
     super(scope, id, props);
 
-    this.githubProvider = new akdev1l.GithubAccessProvider(this, 'GithubAccess', { repo: "akdev1l/landing-page-fyi:*" });
+    this.githubProvider = new akdev1l.GithubAccessProvider(this, 'GithubAccess', { repo: "akdev1l/cdk-landing-page-fyi:master" });
   }
 }
