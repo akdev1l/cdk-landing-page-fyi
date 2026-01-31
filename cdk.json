@@ -1,0 +1,4 @@
+{
+  "app": "node --experimental-vm-modules build/dist/index.js",
+  "output": "build/cdk.out"
+}

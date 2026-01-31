@@ -1,0 +1,27 @@
+{
+  "name": "@akdev1l/cdk-fyi",
+  "version": "1.0.0",
+  "description": "alexdiaz.fyi",
+  "keywords": [
+    "Alex",
+    "Diaz",
+    "FYI"
+  ],
+  "license": "GPL-3.0",
+  "author": "akdev",
+  "main": "build/dist/index.js",
+  "scripts": {
+    "test": "true",
+    "build": "tsc",
+    "postbuild": "cdk synth",
+    "deploy": "cdk deploy",
+    "diff": "cdk diff",
+    "bootstrap": "cdk bootstrap",
+    "synth": "cdk synth"
+  },
+  "devDependencies": {
+    "@akdev1l/constructs": "^0.0.6",
+    "typescript": "^5.9.3",
+    "aws-cdk": "^2.1104.0"
+  }
+}
